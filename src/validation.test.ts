@@ -1,5 +1,4 @@
 
-import { shouldNotBeEmpty, shouldBeNumbersAndLetters, testInputLength64 } from "./validation"
 describe('empty validation', () => {
 
 
