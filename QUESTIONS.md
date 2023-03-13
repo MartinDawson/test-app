@@ -1,0 +1,16 @@
+- Why use typescript
+- Classes vs functions differences
+- Benefit of doing Infrastructure as Code
+- When to do unit vs integration tests vs e2e tests
+- What does multi-threading mean?
+- Is nodejs multi threaded
+- What are promises in Javascript?
+- Pure functions and immutable meaning
+- What type of things should be mocked out in unit tests
+- Why is it bad to use the `any` type in typescript?
+- Higher order functions
+- Types vs interfaces in typescript
+- Intersection vs unions in typescript (i.e & vs |)
+- Examples of bad patterns of creating code, God classes
+- Examples of good patterns of creating code, DRY, polymorphism, small functions
+- Is javascript pass by reference or pass by value
