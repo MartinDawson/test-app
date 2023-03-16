@@ -1,11 +1,21 @@
+const readline = require("readline");
 
-// @ts-ignore
-const args = process.argv;
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
-const appId = args[2];
-const projectName = args[3];
-const projectDescription = args[4]
+const promptQuestion = (query: string) => new Promise((resolve) => rl.question(query, resolve));
 
-console.log(appId);
-console.log(projectName)
-console.log(projectDescription)
+(async () => {
+  try {
+    const appId = await promptQuestion('What\'s your appId? ');
+    const projectName = await promptQuestion('What\'s your projectName? ');
+    const projectDescription = await promptQuestion('What\'s your projectDescription? ');
+    const teamName = await promptQuestion('What\'s your team name? ');
+
+    console.log(appId, projectName, projectDescription, teamName);
+    rl.close();
+  } catch (e) {
+    console.error("Unable to prompt", e);
+  }
+})();
+
+rl.on('close', () => process.exit(0));
