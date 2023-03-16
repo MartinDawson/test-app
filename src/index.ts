@@ -4,14 +4,25 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 
 const promptQuestion = (query: string) => new Promise((resolve) => rl.question(query, resolve));
 
+const fields = [
+  { name: 'appId' },
+  { name: 'projectName' },
+  { name: 'projectDescription' },
+  { name: 'teamName' },
+];
+
 (async () => {
   try {
-    const appId = await promptQuestion('What\'s your appId? ');
-    const projectName = await promptQuestion('What\'s your projectName? ');
-    const projectDescription = await promptQuestion('What\'s your projectDescription? ');
-    const teamName = await promptQuestion('What\'s your team name? ');
+    let values: string[] = []
 
-    console.log(appId, projectName, projectDescription, teamName);
+    for (let index = 0; index < fields.length; index++) {
+      const field = fields[index];
+      const value = await promptQuestion(`What's your ${field.name}? `) as string
+
+      values.push(value)
+    }
+
+    console.log(...values);
     rl.close();
   } catch (e) {
     console.error("Unable to prompt", e);
