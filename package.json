@@ -1,5 +1,6 @@
 {
   "name": "test-app",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,7 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "ts-node src/index.ts appId=\"123456\" projectName=\"test-app\" projectDescription=\"testDescription\"",
+    "start": "node --loader ts-node/esm src/index.ts",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

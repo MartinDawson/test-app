@@ -1,5 +1,4 @@
 import { createInterface } from 'readline';
-import { fields } from './mocks';
 
 const rl = createInterface({ input: process.stdin, output: process.stdout });
 
@@ -8,6 +7,11 @@ const promptQuestion = (query: string) => new Promise((resolve) => rl.question(q
 export type Field = {
   name: string;
 }
+
+export const fields = [
+  { name: 'appId' },
+  { name: 'projectName' },
+];
 
 export const getAnswersToQuestionsFromUser = async (fields: Field[]) => {
   let values: string[] = []
