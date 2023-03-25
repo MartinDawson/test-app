@@ -1,31 +1,36 @@
-const readline = require("readline");
+import { createInterface } from 'readline';
+import { fields } from './mocks';
 
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+const rl = createInterface({ input: process.stdin, output: process.stdout });
 
 const promptQuestion = (query: string) => new Promise((resolve) => rl.question(query, resolve));
 
-const fields = [
-  { name: 'appId' },
-  { name: 'projectName' },
-  { name: 'projectDescription' },
-  { name: 'teamName' },
-];
+export type Field = {
+  name: string;
+}
+
+export const getAnswersToQuestionsFromUser = async (fields: Field[]) => {
+  let values: string[] = []
+
+  for (let index = 0; index < fields.length; index++) {
+    const field = fields[index];
+    const value = await promptQuestion(`What's your ${field.name}? `) as string
+
+    values.push(value)
+  }
+
+  return values;
+}
 
 (async () => {
   try {
-    let values: string[] = []
+    const answers = await getAnswersToQuestionsFromUser(fields);
 
-    for (let index = 0; index < fields.length; index++) {
-      const field = fields[index];
-      const value = await promptQuestion(`What's your ${field.name}? `) as string
-
-      values.push(value)
-    }
-
-    console.log(...values);
-    rl.close();
+    console.log(...answers);
   } catch (e) {
     console.error("Unable to prompt", e);
+  } finally {
+    rl.close();
   }
 })();
 

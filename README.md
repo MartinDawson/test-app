@@ -1,44 +1,27 @@
+## Introduction
 
-We have a CLI tool that asks the user for a bunch of fields and does something based off of these questions.
+This test app is just a simple nodejs & typescript app.
 
-These fields have validation around, just like you would see in a normal frontend application for form fields.
+The idea of the take home test is just to familiarize yourself with the code and not spend more than 1 hour on the challenge.
 
-The fields and types we have are the following:
+We will do a 45 min pair programming exercise with your solution to see what can be made better or extend the code to add extra functionality.
 
-- appId: string
-- projectName: string
-- projectDescription: string
-- teamName: string
+## Challenge
 
-An example use case is like this:
+We have a CLI tool in src/index.ts asks the user a question and returns an answer and logs it to the console.
 
-`node src/index.ts appId="123456" projectName="test-app" projectDescription="testDescription" teamName="my great team"`
+1. Add validation fields for `appId` that satisfy the following:
 
-1. Add validation to the above fields with the following constraints:
+- must not be empty
+- must only allow alphanumeric (0-9,A-Z,a-z) characters
 
-Also Make sure that these error messages are outputted to the user's stdout terminal.
+2. Add validation fields for `projectName` that satisfy the following:
 
-- appId:
+- must not be empty
+- input must have a maximum length of 256 characters
 
-must not be empty
-must only allow alphanumeric characters
+3. Make sure that these error messages are outputted to the user's stdout terminal using console.log().
 
-- projectName:
+4. If validation for a field fails then we should not prompt the user for the next question and answer.
 
-must not be empty
-input must have a maximum length of 256 characters
-must only allow alphanumeric characters, full stops and hyphens
-
-- projectDescription:
-
-input must not be empty
-
-- teamName:
-
-must not be empty
-input must have a maximum length of 64 characters
-must only allow alphanumeric characters, full stops and hyphens
-
-2. Write unit tests for the above code.
-
-3. Write integration tests for the above cases to verify that each validation works correctly.
+`npm run start` to run the app.
