@@ -32,6 +32,8 @@ We have a CLI tool in src/index.ts that asks the user a question and returns an 
 
 4. If validation for a field fails then we should not prompt the user for the next question and answer.
 
+5. Add unit and integration tests
+
 So for example:
 
 If you run `npm run start` and press `Enter` without inputting any value, the terminal should output a message saying `AppId must not be empty` and the terminal will exit as it should have failed the `must not be empty` validation constraint.
